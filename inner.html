@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Staff Directory</title>
+    <title>V-Fall Cinema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
@@ -83,18 +84,26 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
+      var owl = $('.v-fall-main-slider');
       var owl2 = $('.v-fall-main-block__container-carousel')
-      owl2.owlCarousel({
-          items: 4,
+      owl.owlCarousel({
+          center: true,
+          items: 2,
           loop: true,
-          margin: 26,
-          autoWidth: true
+          margin: 10,
+          autoWidth: true,
       });
+      $('.v-fall-main-slide__next').click(function() {
+          owl.trigger('next.owl.carousel', [300]);
+      })
+      $('.v-fall-main-slide__prev').click(function() {
+          owl.trigger('prev.owl.carousel', [300]);
+      })
       
       var video = $("video"),
           pauseButton = $(".v-fall-inner__video-btn");
-      pauseButton.bind('click', function() {
-            if (video.get(0).paused) {
+          pauseButton.bind('click', function() {
+          if (video.get(0).paused) {
               video.get(0).play();
               //pauseButton.html("&#x25fC");
           } else {
@@ -108,6 +117,13 @@
           height: 250
         })
       })
+      
+      owl2.owlCarousel({
+          items: 4,
+          loop: true,
+          margin: 26,
+          autoWidth: true
+      });
       
       $('.v-fall-main-block__carousel-right').click(function() {
           owl2.trigger('next.owl.carousel', [300]);

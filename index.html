@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Staff Directory</title>
+    <title>V-Fall Cinema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
-    <!-- https://codepen.io/html5book/pen/zNEXag-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
   </head>
@@ -153,6 +153,24 @@
       })
       $('.v-fall-main-slide__prev').click(function() {
           owl.trigger('prev.owl.carousel', [300]);
+      })
+      
+      var video = $("video"),
+          pauseButton = $(".v-fall-inner__video-btn");
+          pauseButton.bind('click', function() {
+          if (video.get(0).paused) {
+              video.get(0).play();
+              //pauseButton.html("&#x25fC");
+          } else {
+              video.get(0).pause();
+              //pauseButton.html("&#x25BA");
+          }
+      });
+      
+      $(".v-fall-inner__content-slide").click(function() {
+        $('.v-fall-inner__content-text').animate({
+          height: 250
+        })
       })
       
       owl2.owlCarousel({
